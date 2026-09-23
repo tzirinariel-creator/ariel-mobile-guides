@@ -1,0 +1,381 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>אינדונזיה מהדרך · ההמלצות שלנו</title>
+<meta name="description" content="באלי, קומודו ורוד טריפ במזרח ג׳אווה: 29 מקומות שבדקנו בעצמנו, עם מחירים, טיפים וקישור לגוגל מפס לכל אחד.">
+<meta property="og:title" content="אינדונזיה מהדרך · ההמלצות שלנו">
+<meta property="og:description" content="באלי, קומודו ורוד טריפ במזרח ג׳אווה. 29 מקומות, מחירים, טיפים ומפה.">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0929_2659.jpg/1280px-Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0929_2659.jpg">
+<meta name="theme-color" content="#0e4b45">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<style>
+:root{--ink:#17231f;--mute:#5b6b66;--teal:#0e4b45;--teal2:#16736a;--sand:#fbf6ec;--line:#e7e1d5;--accent:#e8743b;--card:#fff;--r:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:118px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.7}
+a{color:var(--teal2)} img{max-width:100%;display:block} bdi{unicode-bidi:isolate}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:900;font-size:19px;color:var(--teal);text-decoration:none;letter-spacing:-.2px} .brand span{color:var(--accent)}
+.menu-btn{border:0;background:var(--teal);color:#fff;font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:7px 16px;cursor:pointer}
+.sheet{position:fixed;inset:0;z-index:80;background:rgba(10,30,27,.45);display:none}
+.sheet.open{display:block}
+.sheet nav{position:absolute;top:0;right:0;left:0;background:#fff;border-radius:0 0 22px 22px;padding:18px 18px 22px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.sheet nav a{display:flex;justify-content:space-between;align-items:center;padding:12px 6px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:18px}
+.sheet nav a small{color:var(--mute);font-weight:400;font-size:14px}
+.sheet .close{float:left;border:0;background:#f1ede4;border-radius:999px;width:38px;height:38px;font-size:20px;cursor:pointer}
+/* hero */
+.hero{position:relative;min-height:min(86vh,720px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(5,30,28,.82) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:34px;width:100%}
+.kicker{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:500}
+.hero h1{font-size:clamp(46px,13vw,92px);line-height:1;margin:12px 0 10px;font-weight:900;letter-spacing:-1px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero p{font-size:18px;max-width:560px;margin:0 0 18px;opacity:.95}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--teal);font-weight:800;text-decoration:none;border-radius:999px;padding:10px 18px;font-size:16px}
+.pill.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+/* sections */
+section{padding:44px 0}
+.band{background:var(--sand)}
+h2{font-size:clamp(28px,7vw,40px);line-height:1.15;margin:0 0 8px;color:var(--teal);font-weight:900;letter-spacing:-.5px}
+h2 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--accent);margin-left:10px;vertical-align:middle}
+.lead{color:var(--mute);margin:0 0 22px;font-size:17px}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:800px){.facts{grid-template-columns:repeat(4,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 14px 12px}
+.fact b{display:block;font-size:22px;line-height:1.2;color:var(--teal);font-weight:900}
+.fact span{font-size:14.5px;color:var(--mute);line-height:1.45;display:block;margin-top:4px}
+.conv{margin-top:14px;background:var(--teal);color:#fff;border-radius:var(--r);padding:16px}
+.conv label{font-weight:700;font-size:15px} .conv .row{display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.conv input{font:inherit;font-size:20px;font-weight:700;width:170px;border:0;border-radius:12px;padding:8px 12px;direction:ltr;text-align:left}
+.conv output{font-size:24px;font-weight:900} .conv small{display:block;opacity:.8;font-size:13.5px;margin-top:6px}
+.conv .q{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px} .conv .q button{font:inherit;font-size:14px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:999px;padding:4px 10px;cursor:pointer}
+/* route */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps a{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-decoration:none;color:var(--ink)}
+.steps .no{flex:0 0 36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:900}
+.steps b{display:block;font-size:17px;line-height:1.3} .steps small{color:var(--mute);font-size:14px}
+.hind{margin-top:18px;background:var(--teal);color:#fff;border-radius:22px;padding:20px 20px 8px}
+.hind h3{margin:0 0 8px;font-size:22px} .hind p{margin:0 0 12px}
+/* top picks */
+.picks{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+@media(min-width:800px){.picks{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
+.pick{scroll-snap-align:start;position:relative;border-radius:var(--r);overflow:hidden;min-height:250px;color:#fff;text-decoration:none;display:flex;align-items:flex-end;background:var(--teal2)}
+.pick img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pick:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78))}
+.pick div{position:relative;z-index:2;padding:14px} .pick b{font-size:20px;display:block;line-height:1.25} .pick span{font-size:14.5px;opacity:.95}
+.pick .tag{position:absolute;top:12px;right:12px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px}
+/* map */
+#map{height:430px;border-radius:var(--r);border:1px solid var(--line);z-index:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:10px 0 0;font-size:14.5px;color:var(--mute)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-left:5px;vertical-align:-1px}
+.num-pin{width:26px;height:26px;border-radius:50%;color:#fff;font:800 12.5px Heebo,sans-serif;display:grid;place-items:center;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.35)}
+.leaflet-popup-content{font-family:Heebo,sans-serif;direction:rtl;text-align:right;margin:10px 12px;font-size:15px;line-height:1.5}
+/* tips */
+.tips{display:grid;gap:12px} @media(min-width:800px){.tips{grid-template-columns:1fr 1fr}}
+.tip{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px 6px}
+.tip h3{margin:0 0 6px;font-size:21px;color:var(--teal)} .tip p{margin:0 0 10px}
+/* filter bar */
+.fbar{position:sticky;top:56px;z-index:40;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);padding:8px 0}
+.fbar .wrap{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none} .fbar .wrap::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:inherit;font-size:15px;font-weight:700;border:1.5px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.search{margin:14px 0 0;display:flex;gap:10px;align-items:center}
+.search input{flex:1;font:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:14px;padding:10px 14px;background:#fff}
+.count{font-size:14.5px;color:var(--mute);margin-top:6px}
+/* chapters */
+.chapter{padding:34px 0 10px}
+.cbanner{position:relative;border-radius:22px;overflow:hidden;min-height:210px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(135deg,#16736a,#0e4b45)}
+.cbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cbanner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.72))}
+.cbanner div{position:relative;z-index:2;padding:16px 18px}
+.cbanner .d{font-size:14px;font-weight:700;background:var(--accent);border-radius:999px;padding:2px 10px}
+.cbanner h2{color:#fff;margin:8px 0 0;font-size:clamp(28px,8vw,42px)}
+.quote{margin:16px 0 8px;border-right:4px solid var(--accent);padding:2px 14px 2px 0;font-size:19px;font-weight:700;color:var(--teal);line-height:1.5}
+.intro p{margin:0 0 10px}
+.cards{display:grid;gap:14px;margin-top:14px} @media(min-width:800px){.cards{grid-template-columns:1fr 1fr}}
+.place{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.place:target{outline:3px solid var(--accent);outline-offset:2px}
+.ph{display:flex;gap:12px;align-items:flex-start}
+.pn{flex:0 0 34px;height:34px;border-radius:50%;color:#fff;display:grid;place-items:center;font-weight:900;font-size:15px}
+.place h3{margin:0;font-size:20px;line-height:1.3}
+.meta{font-size:14px;color:var(--mute);margin-top:2px}
+.cat{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.chips span{font-size:13.5px;font-weight:700;background:#f4efe4;color:#4a3f2a;border-radius:8px;padding:2px 9px}
+.place p{margin:8px 0 0}
+.acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:15px;font-weight:800;text-decoration:none;border-radius:999px;padding:7px 14px;cursor:pointer}
+.btn.gm{background:var(--teal);color:#fff;border:0} .btn.onmap{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.empty{padding:20px;text-align:center;color:var(--mute)}
+footer{background:#0b2f2b;color:#cfe0dc;padding:34px 0 50px;font-size:14.5px}
+footer h3{color:#fff;margin:0 0 8px} footer a{color:#fff} footer ul{padding-right:18px;margin:8px 0}
+.totop{position:fixed;left:16px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;border:0;font-size:22px;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s;cursor:pointer}
+.totop.show{opacity:1;pointer-events:auto}
+</style></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="#top">אינדונזיה <span>מהדרך</span></a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet">תפריט ☰</button></div></header>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="תפריט"><nav><button class="close" id="closeBtn" aria-label="סגירה">×</button><div style="clear:both"></div>
+<a href="#basics">לפני שיוצאים <small>כסף, סלולר, לינה</small></a>
+<a href="#route">המסלול <small>ומה היינו עושים אחרת</small></a>
+<a href="#top-picks">הכי שווה <small>6 דברים שלא לפספס</small></a>
+<a href="#mapsec">מפה <small>29 מקומות</small></a>
+<a href="#tips">טיפים כלליים <small>אוכל, נהיגה, טיסות</small></a>
+
+<a href="#bali">1. באלי: אובוד ואולווטו <small><bdi dir="ltr">3–5</bdi> בספטמבר</small></a>
+<a href="#komodo">2. לבואן באג׳ו וקומודו <small><bdi dir="ltr">5–8</bdi> בספטמבר</small></a>
+<a href="#transfer">3. מעבר לג׳אווה, דרך באלי <small>9 בספטמבר</small></a>
+<a href="#surabaya">4. סוראביה: יוצאים וחוזרים <small><bdi dir="ltr">10.9</bdi> ו-<bdi dir="ltr">18.9</bdi></small></a>
+<a href="#eastjava">5. רוד טריפ במזרח ג׳אווה <small><bdi dir="ltr">12–17</bdi> בספטמבר</small></a>
+<a href="#westbali">6. מערב באלי <small>17 בספטמבר</small></a>
+</nav></div>
+<div class="hero" id="top"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0929_2659.jpg/1280px-Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0929_2659.jpg" alt="פדר, פארק קומודו" class="" fetchpriority=high decoding="async"><div class="wrap">
+<span class="kicker">המלצות מהדרך · ספטמבר 2026</span>
+<h1>אינדונזיה</h1>
+<p>כמה שבועות בבאלי, קומודו ורוד טריפ במזרח ג׳אווה. 29 מקומות שהיינו בהם בעצמנו, עם מחירים, טיפים וקישור לגוגל מפס לכל אחד.</p>
+<div class="pills"><a class="pill" href="#route">המסלול ←</a><a class="pill ghost" href="#mapsec">המפה</a><a class="pill ghost" href="#tips">טיפים</a></div>
+</div></div>
+<section class="band" id="basics"><div class="wrap">
+<h2><span class="dot"></span>לפני שיוצאים</h2><p class="lead">המספרים שהכי עזרו לנו בדרך.</p>
+<div class="facts">
+<div class="fact"><b><bdi dir="ltr">100,000</bdi> רופי ≈ <bdi dir="ltr">17₪</bdi></b><span>ככה היה לנו נוח לזכור, ומשם לרוץ על כל החישובים.</span></div>
+<div class="fact"><b><bdi dir="ltr">60–100₪</bdi> ללילה</b><span>הלינה באינדונזיה ממש איכותית וזולה. להשוות בגוגל מפס ובאפליקציות.</span></div>
+<div class="fact"><b>Grab</b><span>מאוד נוח ובטוח. אפליקציה חשובה וחובה.</span></div>
+<div class="fact"><b>Telkomsel</b><span>חבילה בשדה התעופה, כ-<bdi dir="ltr">60</bdi> ג״ב לחודש. מחדשים בסופרים.</span></div>
+</div>
+<div class="conv"><label for="idr">מחשבון מהיר: כמה זה בשקלים?</label>
+<div class="row"><input id="idr" inputmode="numeric" value="625,000" aria-label="סכום ברופי"><span>רופי ≈</span><output id="ils" aria-live="polite"></output></div>
+<div class="q" aria-label="דוגמאות מהטיול"><button data-v="25000">חניה במפל</button><button data-v="65000">גראב לקניון</button><button data-v="450000">מעבורת עם רכב</button><button data-v="625000">רכב ליום</button><button data-v="1500000">צלילה</button></div>
+<small>לפי כלל האצבע שלנו (<bdi dir="ltr">100,000 = 17₪</bdi>). לא שער רשמי.</small></div>
+</div></section>
+<section id="route"><div class="wrap">
+<h2><span class="dot"></span>המסלול שלנו</h2><p class="lead">לפי הסדר שבו טיילנו. לחיצה קופצת לפרק.</p>
+<ol class="steps">
+<li><a href="#bali"><span class="no">1</span><span><b>באלי: אובוד ואולווטו</b><small><bdi dir="ltr">3–5</bdi> בספטמבר · 7 מקומות</small></span></a></li>
+<li><a href="#komodo"><span class="no">2</span><span><b>לבואן באג׳ו וקומודו</b><small><bdi dir="ltr">5–8</bdi> בספטמבר · 3 מקומות</small></span></a></li>
+<li><a href="#transfer"><span class="no">3</span><span><b>מעבר לג׳אווה, דרך באלי</b><small>9 בספטמבר · 1 מקומות</small></span></a></li>
+<li><a href="#surabaya"><span class="no">4</span><span><b>סוראביה: יוצאים וחוזרים</b><small><bdi dir="ltr">10.9</bdi> ו-<bdi dir="ltr">18.9</bdi> · 6 מקומות</small></span></a></li>
+<li><a href="#eastjava"><span class="no">5</span><span><b>רוד טריפ במזרח ג׳אווה</b><small><bdi dir="ltr">12–17</bdi> בספטמבר · 8 מקומות</small></span></a></li>
+<li><a href="#westbali"><span class="no">6</span><span><b>מערב באלי</b><small>17 בספטמבר · 4 מקומות</small></span></a></li>
+</ol><div class="hind"><h3>בדיעבד, ככה היינו עושים את זה</h3>
+<p>בדיעבד היינו עושים מזרח למערב - כלומר נוחתים בקומודו (לוקחים אולי סירה קצת יותר מפנקת ממה שהיינו), ממשיכים אפילו במעבורת (אם מתאפשר) לאולווטו, באלי.</p>
+<p>ומשם לוקחים מעבורת או טיסה קצרה לג׳אווה (תכלס אנחנו השכרנו את הרכב בסוראביה, אבל אולי אפשר גם במקום אחר) ועושים את הרוד טריפ.</p>
+<p>בדיעבד, מסוראביה היינו נוסעים ישירות לפארק הלאומי של צבי הים. כל העצירות בערים בדרך לא באמת שוות את הזמן ואת המאמץ, ועדיף כמה שיותר מהר להגיע לאזורים טבעיים, כפריים ויותר מרוחקים, שבהם הטבע ממש יפה ומיוחד.</p>
+<p>מג׳אווה אפשר לעבור לסומטרה, כמו בתכנון שלנו.</p>
+</div></div></section>
+<section class="band" id="top-picks"><div class="wrap"><h2><span class="dot"></span>הכי שווה</h2><p class="lead">אם יש זמן רק לכמה דברים.</p><div class="picks">
+<a class="pick" href="#p-turtlelodge"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Green_Sea_Turtle_laying_her_eggs_on_Sukamade_beach.jpg" alt="צבת ים מטילה ביצים בחוף סוקאמדה, מרו בטירי" class="" loading=lazy decoding="async"><span class="tag">לינה</span><div><b><bdi dir="auto">Java Turtle Lodge Meru Betiri</bdi></b><span>“בערך החוויה הכי טובה שלנו באינדונזיה”</span></div></a>
+<a class="pick" href="#p-family"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0911_2638.jpg/1280px-Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0911_2638.jpg" alt="פארק קומודו" class="" loading=lazy decoding="async"><span class="tag">טבע ואטרקציות</span><div><b><bdi dir="auto">Family Labuan Bajo Tour &amp; Travel</bdi></b><span>“זול לאללה וחוויה באמת מגניבה”</span></div></a>
+<a class="pick" href="#p-tumpaksewu"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Tumpak_sewu.jpg/1280px-Tumpak_sewu.jpg" alt="Tumpak Sewu" class="" loading=lazy decoding="async"><span class="tag">טבע ואטרקציות</span><div><b><bdi dir="auto">Tumpak Sewu Waterfall</bdi></b><span>“מקום מאוד מרשים” - להגיע לפני <bdi dir="ltr">08:00</bdi></span></div></a>
+<a class="pick" href="#p-rice"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rice_terraces%2C_Bali.jpg/1280px-Rice_terraces%2C_Bali.jpg" alt="שדות אורז, באלי" class="" loading=lazy decoding="async"><span class="tag">טבע ואטרקציות</span><div><b><bdi dir="auto">שדות האורז</bdi></b><span>“חובה למי שמגיע לאובוד”</span></div></a>
+<a class="pick" href="#p-alchemy"><span class="tag">אוכל</span><div><b><bdi dir="auto">Alchemy Uluwatu</bdi></b><span>“טעים ברמה חריגה” - טבעוני וצליאקי</span></div></a>
+<a class="pick" href="#p-westbalidiving"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Foto_landscape_pemandangan_di_pulau_menjangan.jpg/1280px-Foto_landscape_pemandangan_di_pulau_menjangan.jpg" alt="האי מנג׳נגן, מערב באלי" class="" loading=lazy decoding="async"><span class="tag">טבע ואטרקציות</span><div><b><bdi dir="auto">West Bali Diving &amp; Snorkeling</bdi></b><span>“רציניים ומקצוענים”, <bdi dir="ltr">1.5</bdi>M רופי</span></div></a>
+</div></div></section>
+<section id="mapsec"><div class="wrap"><h2><span class="dot"></span>כל המקומות על המפה</h2><p class="lead">המספרים על המפה הם המספרים של הכרטיסים למטה. לחיצה על נקודה פותחת את הכרטיס.</p>
+<div id="map" role="region" aria-label="מפת המקומות"></div>
+<div class="legend"><span><i style="background:#2f6fb0"></i>לינה</span><span><i style="background:#d9622b"></i>אוכל</span><span><i style="background:#2f8a5b"></i>טבע ואטרקציות</span><span><i style="background:#7b5ea7"></i>פרקטי</span></div></div></section>
+<section class="band" id="tips"><div class="wrap"><h2><span class="dot"></span>טיפים כלליים</h2><p class="lead">הדברים שלמדנו על כל הטיול, לא על מקום אחד.</p><div class="tips">
+<div class="tip" id="tip-stay"><h3>לינה</h3><p>חשוב להחזיק כמה אפליקציות כמו אגודה, טריפ וכדומה, ותמיד להשוות מחירים בגוגל מפס כדי למצוא את המחיר הכי טוב. באמת שהלינה באינדונזיה ממש איכותית וזולה, ושווה להתעמק בזה כדי לקבל מחירים טובים.</p><p>בג׳אווה המלונות לא אמורים לעלות יותר מ-<bdi dir="ltr">100₪</bdi>. בלבואן באג׳ו מדובר על לילות בערך ב-<bdi dir="ltr">60₪</bdi>.</p></div>
+<div class="tip" id="tip-food"><h3>אוכל</h3><p>לא קל עם אוכל באינדונזיה בדרכים. תכלס שווה להביא תמיד לחם, חמאת בוטנים וכל מיני דברים שיוכלו לסגור פינה.</p><p>יש מסעדות מקומיות בכל מקום - זולות ברמה קיצונית. מגישים אורז, טופו וטמפה, ומי שאמיץ כמובן עוד דברים. הבעיה שהרבה פעמים הן די מלוכלכות ולא קל למצוא מקומות נקיים וטובים - אז צריך לקחת בחשבון.</p><p>בשיט בקומודו צריך ממש להגיד על טבעונות וצליאק, כי אחרת בקושי שמים על זה.</p></div>
+<div class="tip" id="tip-money"><h3>כסף</h3><p>לנו היה נוח לזכור ש-<bdi dir="ltr">100,000</bdi> רופי אינדונזי זה <bdi dir="ltr">17₪</bdi>, ומשם לרוץ על כל החישובים.</p><p>הוצאנו כסף ב-<bdi dir="ltr">BNI</bdi> בלבד, ותכלס תמיד נראה שהעמלות ממש נמוכות. השתמשנו בכרטיס <bdi dir="ltr">LAYA</bdi> עם דולרים והעמלות היו בסדר גמור.</p></div>
+<div class="tip" id="tip-move"><h3>תחבורה ונהיגה</h3><p>גראב (<bdi dir="ltr">Grab</bdi>) מאוד נוח ובטוח. אפליקציה חשובה וחובה.</p><p>כל הסיפור של הרכב בכלל לא דרמטי כמו שהוא נראה. לא ראינו שוטר אחד. ומבחינת סיכון - נכון שנוהגים בצד שמאל וצפוף לפעמים, אבל אם נוהגים רק ביום ובאחריות, אין באמת סיבה שיקרה משהו.</p><p>כן ממליץ על ג׳יפ יחסית, שיאפשר יותר גמישות. וחשוב לזכור שצריך כרטיס לכבישי האגרה בג׳אווה.</p><p>טיסות: דיס-המלצה חריפה על <bdi dir="ltr">Lion Air</bdi> - שלושה עיכובים ולא עונים בשום מקום. <bdi dir="ltr">Air Asia</bdi> מעולה. כשטיסה ישירה יקרה, אפשר לפצל (אנחנו טסנו מקומודו לבאלי ומשם לסוראביה).</p></div>
+<div class="tip" id="tip-sim"><h3>סלולר</h3><p>עשינו חבילת סלולר בשדה התעופה שנחתנו בו - ממש ממליצים על טלקום (<bdi dir="ltr">Telkomsel</bdi>). קליטה מעולה ואחלה מחיר. עשינו בערך 60 ג״ב לחודש, ואם רוצים לחדש אפשר דרך הסופרים שנפוצים כאן.</p></div>
+<div class="tip" id="tip-fire"><h3>איג׳ן וברומו</h3><p>ברומו ואיג׳ן נסגרים לפעמים בגלל שריפות, ויצא שלצערנו פספסנו את שניהם.</p><p>שווה להיות בקשר עם המדריכים המקומיים ולבדוק כל הזמן את הסטטוס שלהם, למשל עם כלי בינה מלאכותית (אנחנו בדקנו ב-<bdi dir="ltr">Instinct</bdi>). מדובר באתרים מדהימים ומאוד תיירותיים, וצריך להיות במעקב, להזמין כרטיסים מראש ולהיות חדים וערניים, בטח בתקופה של שריפות וסגירות.</p></div>
+</div></div></section>
+<div class="fbar" id="places"><div class="wrap" role="group" aria-label="סינון לפי סוג">
+<button class="chip" data-f="all" aria-pressed="true">הכל</button><button class="chip" data-f="stay" aria-pressed="false">לינה</button><button class="chip" data-f="food" aria-pressed="false">אוכל</button><button class="chip" data-f="nature" aria-pressed="false">טבע ואטרקציות</button><button class="chip" data-f="practical" aria-pressed="false">פרקטי</button></div></div>
+<div class="wrap"><div class="search"><input id="q" type="search" placeholder="חיפוש: מפל, פוקי, מספרה, צלילה..." aria-label="חיפוש במקומות"></div><div class="count" id="count" aria-live="polite"></div></div>
+<section class="chapter" id="bali" data-ch><div class="wrap"><div class="cbanner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rice_terraces%2C_Bali.jpg/1280px-Rice_terraces%2C_Bali.jpg" alt="שדות אורז, באלי" class="" loading=lazy decoding="async"><div><span class="d">1 · <bdi dir="ltr">3–5</bdi> בספטמבר</span><h2>באלי: אובוד ואולווטו</h2></div></div>
+<p class="quote">“באופן כללי בתחושה שלנו אולווטו עדיפה על אובוד, נראה אווירה יותר טובה, ים, אוכל יותר טוב.”</p>
+<div class="cards">
+<article class="place" id="p-sumampan" data-cat="nature" data-s="sumampan waterfall ליד אובוד טבע ואטרקציות חניה: 25,000 רופי לאחד להגיע לפני 09:00 מפל מדהים חצי שעה מאובוד. להגיע לפני 09:00 כדי לא להיות עם הרבה אנשים. חונים ומשלמים 25,000 רופי לאחד. יש ליד ארוחות בוקר שנראות בסדר, לא ואו."><div class="ph"><span class="pn" style="background:#2f8a5b">1</span><div><h3><bdi dir="auto">Sumampan Waterfall</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · ליד אובוד · <bdi dir="ltr">3.9</bdi></div></div></div>
+<div class="chips"><span>חניה: <bdi dir="ltr">25,000</bdi> רופי לאחד</span><span>להגיע לפני <bdi dir="ltr">09:00</bdi></span></div>
+<p>מפל מדהים חצי שעה מאובוד. להגיע לפני <bdi dir="ltr">09:00</bdi> כדי לא להיות עם הרבה אנשים.</p><p>חונים ומשלמים <bdi dir="ltr">25,000</bdi> רופי לאחד. יש ליד ארוחות בוקר שנראות בסדר, לא ואו.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/UUK3eoLdHaYZRLuy6?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="1">על המפה</button></div></article>
+<article class="place" id="p-ulubeach" data-cat="nature" data-s="חוף באולווטו אולווטו טבע ואטרקציות שעה וחצי-שעתיים מאובוד חוף חמוד לגמרי באולווטו. עשינו נסיעה של שעה וחצי לכאן מאובוד, אפילו שעתיים, והיה ממש כיף המסע."><div class="ph"><span class="pn" style="background:#2f8a5b">2</span><div><h3><bdi dir="auto">חוף באולווטו</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · אולווטו · <bdi dir="ltr">3.9</bdi></div></div></div>
+<div class="chips"><span>שעה וחצי-שעתיים מאובוד</span></div>
+<p>חוף חמוד לגמרי באולווטו. עשינו נסיעה של שעה וחצי לכאן מאובוד, אפילו שעתיים, והיה ממש כיף המסע.</p>
+<div class="acts"><a class="btn gm" href="https://maps.google.com/?q=-8.838239,115.091553" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="2">על המפה</button></div></article>
+<article class="place" id="p-alchemy" data-cat="food" data-s="alchemy uluwatu אולווטו אוכל טבעוני / צליאקי מקום טעים ברמה חריגה!! בעיקר לטבעוני / צליאקי, אבל גם מי שלא. חומרי גלם ממש טובים. יש פוקי בול בהרכבה אישית כזה, עם מלא דברים שווים. לקחנו פסטה שלא הייתה ואו, ויש עוגות טעימות."><div class="ph"><span class="pn" style="background:#d9622b">3</span><div><h3><bdi dir="auto">Alchemy Uluwatu</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · אולווטו · <bdi dir="ltr">3.9</bdi></div></div></div>
+<div class="chips"><span>טבעוני / צליאקי</span></div>
+<p>מקום טעים ברמה חריגה!! בעיקר לטבעוני / צליאקי, אבל גם מי שלא. חומרי גלם ממש טובים.</p><p>יש פוקי בול בהרכבה אישית כזה, עם מלא דברים שווים. לקחנו פסטה שלא הייתה ואו, ויש עוגות טעימות.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/qdPo7vai41PNS4Xw8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="3">על המפה</button></div></article>
+<article class="place" id="p-maison" data-cat="practical" data-s="maison barbershop אולווטו פרקטי קצת יקרה מספרה מעולה!! קצת יקרה."><div class="ph"><span class="pn" style="background:#7b5ea7">4</span><div><h3><bdi dir="auto">Maison Barbershop</bdi></h3><div class="meta"><span class="cat" style="color:#7b5ea7">פרקטי</span> · אולווטו · <bdi dir="ltr">3.9</bdi></div></div></div>
+<div class="chips"><span>קצת יקרה</span></div>
+<p>מספרה מעולה!! קצת יקרה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/BEcSy4bDBKqtXncL8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="4">על המפה</button></div></article>
+<article class="place" id="p-ubudbnb" data-cat="stay" data-s="הדירה באובוד (airbnb) אובוד לינה בערך 90₪ ללילה כולל ארוחת בוקר הסעה מהשדה + אופנוע לינה מעולה באובוד!! בערך 90₪ ללילה, דרך airbnb. בן אדם מאוד טוב. דירה יפה עם מקלחת חיצונית. כולל ארוחת בוקר. והוא יכול לסגור הסעה מהשדה ולהשכיר לך אופנוע, ככה שזה הכול מהכול. אבל דגש חשוב - אנחנו כן יותר אהבנו את אולווטו מאשר את אובוד."><div class="ph"><span class="pn" style="background:#2f6fb0">5</span><div><h3><bdi dir="auto">הדירה באובוד (Airbnb)</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · אובוד · <bdi dir="ltr">4.9</bdi></div></div></div>
+<div class="chips"><span>בערך <bdi dir="ltr">90₪</bdi> ללילה</span><span>כולל ארוחת בוקר</span><span>הסעה מהשדה + אופנוע</span></div>
+<p>לינה מעולה באובוד!! בערך <bdi dir="ltr">90₪</bdi> ללילה, דרך <bdi dir="ltr">Airbnb</bdi>. בן אדם מאוד טוב. דירה יפה עם מקלחת חיצונית. כולל ארוחת בוקר.</p><p>והוא יכול לסגור הסעה מהשדה ולהשכיר לך אופנוע, ככה שזה הכול מהכול.</p><p>אבל דגש חשוב - אנחנו כן יותר אהבנו את אולווטו מאשר את אובוד.</p>
+<div class="acts"><a class="btn gm" href="https://maps.google.com/?q=-8.471765,115.264877" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="5">על המפה</button></div></article>
+<article class="place" id="p-rice" data-cat="nature" data-s="שדות האורז אובוד טבע ואטרקציות חובה מומלץ בשקיעה חובה למי שמגיע לאובוד!! טיול בשדות אורז, אפשר להגיע עם האופנוע. מומלץ בשקיעה. אפילו לחפש שם מקום מפנק לישון - יקר, אבל יפה ברמות, עם בריכות באמצע שדות האורז."><div class="ph"><span class="pn" style="background:#2f8a5b">6</span><div><h3><bdi dir="auto">שדות האורז</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · אובוד · <bdi dir="ltr">4.9</bdi></div></div></div>
+<div class="chips"><span>חובה</span><span>מומלץ בשקיעה</span></div>
+<p>חובה למי שמגיע לאובוד!! טיול בשדות אורז, אפשר להגיע עם האופנוע. מומלץ בשקיעה.</p><p>אפילו לחפש שם מקום מפנק לישון - יקר, אבל יפה ברמות, עם בריכות באמצע שדות האורז.</p>
+<div class="acts"><a class="btn gm" href="https://maps.google.com/?q=-8.496677,115.261230" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="6">על המפה</button></div></article>
+<article class="place" id="p-hideaway" data-cat="stay" data-s="the hideaway ubud אובוד לינה בערך 100₪ ללילה איסוף מהשדה + אופנוע מקום לינה מדהים מדהים באובוד!! בערך 100₪ ללילה. בן אדם מדהים, ארוחת בוקר בקטנה, מאוד זמין ומביא כל מה שצריך, הכול נקי ומסודר. הוא גם עושה איסוף מהשדה ומשכיר אופנוע."><div class="ph"><span class="pn" style="background:#2f6fb0">7</span><div><h3><bdi dir="auto">The Hideaway Ubud</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · אובוד · <bdi dir="ltr">5.9</bdi></div></div></div>
+<div class="chips"><span>בערך <bdi dir="ltr">100₪</bdi> ללילה</span><span>איסוף מהשדה + אופנוע</span></div>
+<p>מקום לינה מדהים מדהים באובוד!! בערך <bdi dir="ltr">100₪</bdi> ללילה. בן אדם מדהים, ארוחת בוקר בקטנה, מאוד זמין ומביא כל מה שצריך, הכול נקי ומסודר.</p><p>הוא גם עושה איסוף מהשדה ומשכיר אופנוע.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/cqV1JkaEmkJx3EvV8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="7">על המפה</button></div></article>
+</div></div></section>
+<section class="chapter" id="komodo" data-ch><div class="wrap"><div class="cbanner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0911_2638.jpg/1280px-Padar_Island%2C_Komodo_National_Park%2C_Indonesia%2C_20250822_0911_2638.jpg" alt="פארק קומודו" class="" loading=lazy decoding="async"><div><span class="d">2 · <bdi dir="ltr">5–8</bdi> בספטמבר</span><h2>לבואן באג׳ו וקומודו</h2></div></div>
+<p class="quote">“בכל מה שקשור לקומודו, וואלה חוויה די תיירותית אבל סך הכול מאוד טובה ולא יקרה.”</p>
+<div class="intro"><p>העיירה שמגיעים אליה לפני האיים נקראת לבואן באג׳ו (<bdi dir="ltr">Labuan Bajo</bdi>), ושדה התעופה הוא קומודו אינטרנשיונל או משהו כזה. השדה ממש קרוב למלונות. יש גם מלונות זולים שאפשר למצוא בגוגל מפס, ללכת ופשוט לישון. מדובר על לילות בערך ב-<bdi dir="ltr">60₪</bdi>.</p></div>
+<div class="cards">
+<article class="place" id="p-happybanana" data-cat="food" data-s="happy banana komodo לבואן באג׳ו אוכל מחירים אש לפני קומודו יש עיירה קטנה כזאת. אכלנו במקום מטורף, עם פוקי בול טעים ממש ואחלה סושי במחירים אש! מומלץ לאללה."><div class="ph"><span class="pn" style="background:#d9622b">8</span><div><h3><bdi dir="auto">Happy Banana Komodo</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · לבואן באג׳ו · <bdi dir="ltr">5.9</bdi></div></div></div>
+<div class="chips"><span>מחירים אש</span></div>
+<p>לפני קומודו יש עיירה קטנה כזאת. אכלנו במקום מטורף, עם פוקי בול טעים ממש ואחלה סושי במחירים אש! מומלץ לאללה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/jJHBbsAEQrxMUJog6?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="8">על המפה</button></div></article>
+<article class="place" id="p-seaesta" data-cat="stay" data-s="seaesta komodo hostel &amp; hotel לבואן באג׳ו לינה לסגור מראש מקום לינה מדהים ומומלץ שצריך לסגור מראש! פעמיים לא היה לו מקום בשבילנו. זול ושווה לאללה."><div class="ph"><span class="pn" style="background:#2f6fb0">9</span><div><h3><bdi dir="auto">Seaesta Komodo Hostel &amp; Hotel</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · לבואן באג׳ו · <bdi dir="ltr">8.9</bdi></div></div></div>
+<div class="chips"><span>לסגור מראש</span></div>
+<p>מקום לינה מדהים ומומלץ שצריך לסגור מראש! פעמיים לא היה לו מקום בשבילנו. זול ושווה לאללה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/BhswnZ1eJNj9niKT8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="9">על המפה</button></div></article>
+<article class="place" id="p-family" data-cat="nature" data-s="family labuan bajo tour &amp; travel שיט בקומודו טבע ואטרקציות 2 לילות, 3 ימים בערך 500₪ + כ-100₪ כניסות להגיד על טבעונות וצליאק אנחנו יצאנו לשיט של 2 לילות, 3 ימים עם החברה הזאת. סך הכול מדובר על בערך 500₪, עם עוד איזה 100₪ עמלות כניסה לאתרים. זול לאללה וחוויה באמת מגניבה. החברה הזאת עם סירות לא מפנקות במיוחד. מקלחת קטנה כזאת וחדרים לא ברמה הכי גבוהה, אבל וואלה מדריכים מעולים ואוכל סבבה (צריך ממש להגיד להם על טבעונות וצליאק למשל, כי אחרת הם בקושי שמים על זה). הכי חשוב בהפלגות האלו בעיניי - לוודא שקצת אנשים על הספינה! היינו 11 וזה היה מעולה, אם היינו 8 זה בכלל היה נדיר."><div class="ph"><span class="pn" style="background:#2f8a5b">10</span><div><h3><bdi dir="auto">Family Labuan Bajo Tour &amp; Travel</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · שיט בקומודו · <bdi dir="ltr">8.9</bdi></div></div></div>
+<div class="chips"><span>2 לילות, 3 ימים</span><span>בערך <bdi dir="ltr">500₪</bdi> + כ-<bdi dir="ltr">100₪</bdi> כניסות</span><span>להגיד על טבעונות וצליאק</span></div>
+<p>אנחנו יצאנו לשיט של 2 לילות, 3 ימים עם החברה הזאת. סך הכול מדובר על בערך <bdi dir="ltr">500₪</bdi>, עם עוד איזה <bdi dir="ltr">100₪</bdi> עמלות כניסה לאתרים. זול לאללה וחוויה באמת מגניבה.</p><p>החברה הזאת עם סירות לא מפנקות במיוחד. מקלחת קטנה כזאת וחדרים לא ברמה הכי גבוהה, אבל וואלה מדריכים מעולים ואוכל סבבה (צריך ממש להגיד להם על טבעונות וצליאק למשל, כי אחרת הם בקושי שמים על זה).</p><p>הכי חשוב בהפלגות האלו בעיניי - לוודא שקצת אנשים על הספינה! היינו 11 וזה היה מעולה, אם היינו 8 זה בכלל היה נדיר.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/jp9rhn3A9QgoiKZx9?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="10">על המפה</button></div></article>
+</div></div></section>
+<section class="chapter" id="transfer" data-ch><div class="wrap"><div class="cbanner"><div><span class="d">3 · 9 בספטמבר</span><h2>מעבר לג׳אווה, דרך באלי</h2></div></div>
+<p class="quote">“בכללי אגיד שחשוב להכיר פה את המפה ואת האיים כדי לתכנן טיול הגיוני.”</p>
+<div class="intro"><p>מקומודו עברנו לג׳אווה בציפייה לרוד טריפ! שמענו דברים ממש טובים וקראנו בלוגים של אנשים שכבר עשו את זה, וזה נראה מדהים. הטיסה מקומודו לסוראביה (העיר במזרח ג׳אווה שממנה יוצאים לטייל) הייתה יקרה, אז פיצלנו את זה לטיסה לבאלי ולעוד טיסה לסוראביה.</p><p>דיס-המלצה חריפה על <bdi dir="ltr">Lion Air</bdi> לטיסות - כבר שלושה עיכובים ולא עונים בשום מקום. די סיוט. <bdi dir="ltr">Air Asia</bdi> מעולה עד עכשיו!</p></div>
+<div class="cards">
+<article class="place" id="p-darbar" data-cat="food" data-s="darbar indian cuisine קוטה, ליד שדה התעופה אוכל 10 דק׳ בגראב מהשדה בדרך, בקונקשן בבאלי, אכלנו במסעדה הודית טעימה ברמות! ממליצים על מסאלה דוסה, צ׳אנה מסאלה ואורז. היא 10 דקות בגראב משדה התעופה. בכללי גראב מאוד נוח ובטוח - אפליקציה חשובה וחובה."><div class="ph"><span class="pn" style="background:#d9622b">11</span><div><h3><bdi dir="auto">Darbar Indian Cuisine</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · קוטה, ליד שדה התעופה · <bdi dir="ltr">9.9</bdi></div></div></div>
+<div class="chips"><span>10 דק׳ בגראב מהשדה</span></div>
+<p>בדרך, בקונקשן בבאלי, אכלנו במסעדה הודית טעימה ברמות! ממליצים על מסאלה דוסה, צ׳אנה מסאלה ואורז.</p><p>היא 10 דקות בגראב משדה התעופה. בכללי גראב מאוד נוח ובטוח - אפליקציה חשובה וחובה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/noqcSPCA9xjGW9zK7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="11">על המפה</button></div></article>
+</div></div></section>
+<section class="chapter" id="surabaya" data-ch><div class="wrap"><div class="cbanner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Suramadu_Bridge_5.JPG/1280px-Suramadu_Bridge_5.JPG" alt="גשר סוראמאדו, סוראביה" class="" loading=lazy decoding="async"><div><span class="d">4 · <bdi dir="ltr">10.9</bdi> ו-<bdi dir="ltr">18.9</bdi></span><h2>סוראביה: יוצאים וחוזרים</h2></div></div>
+<p class="quote">“קצת על סוראביה, עיר מטורפת. גדולה ומגניבה ומאוד אותנטית.”</p>
+<div class="intro"><p>יש בעיר הזאת קניונים מטורפים ודקאתלון. הצטיידנו ב-<bdi dir="ltr">300₪</bdi> בכל מה שצריך לרוד טריפ משם, והסתובבנו קצת. בסוף הרוד טריפ חזרנו לאותו מלון.</p></div>
+<div class="cards">
+<article class="place" id="p-bess" data-cat="stay" data-s="bess mansion hotel surabaya סוראביה לינה עד 100₪ לחדר פשוט חדר כושר + ארוחת בוקר הוזמן דרך ticket ישנו כאן בערך ב-100₪, וואלה רמה גבוהה ביחס למחיר. קנינו דרך אפליקציה שנקראת ticket, שדי מומלצת כאן למיטב הבנתי. (18.9) חזרנו למלון המעולה הזה. באמת תמורה מעולה למחיר ואחלה של חדרים. נקיים ושירות מעולה! לא יותר מ-100₪ לחדר פשוט, יש חדר כושר, ארוחת בוקר."><div class="ph"><span class="pn" style="background:#2f6fb0">12</span><div><h3><bdi dir="auto">BeSS Mansion Hotel Surabaya</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · סוראביה · <bdi dir="ltr">10.9</bdi> · <bdi dir="ltr">18.9</bdi></div></div></div>
+<div class="chips"><span>עד <bdi dir="ltr">100₪</bdi> לחדר פשוט</span><span>חדר כושר + ארוחת בוקר</span><span>הוזמן דרך <bdi dir="ltr">Ticket</bdi></span></div>
+<p>ישנו כאן בערך ב-<bdi dir="ltr">100₪</bdi>, וואלה רמה גבוהה ביחס למחיר. קנינו דרך אפליקציה שנקראת <bdi dir="ltr">Ticket</bdi>, שדי מומלצת כאן למיטב הבנתי.</p><p>(<bdi dir="ltr">18.9</bdi>) חזרנו למלון המעולה הזה. באמת תמורה מעולה למחיר ואחלה של חדרים. נקיים ושירות מעולה! לא יותר מ-<bdi dir="ltr">100₪</bdi> לחדר פשוט, יש חדר כושר, ארוחת בוקר.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/12XJ88uuk6XkjUo37?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="12">על המפה</button></div></article>
+<article class="place" id="p-commongrounds" data-cat="food" data-s="common grounds סוראביה אוכל ארוחת בוקר ארוחת בוקר מומלצת ומערבית."><div class="ph"><span class="pn" style="background:#d9622b">13</span><div><h3><bdi dir="auto">Common Grounds</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · סוראביה · <bdi dir="ltr">10.9</bdi></div></div></div>
+<div class="chips"><span>ארוחת בוקר</span></div>
+<p>ארוחת בוקר מומלצת ומערבית.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/NwUNs7U8FLivxodr9?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="13">על המפה</button></div></article>
+<article class="place" id="p-era" data-cat="practical" data-s="era trans rent car סוראביה פרקטי 625,000 רופי ליום כולל ביטוח השכרנו רכב מפה. תכלס סוכנות קצת גרועה כזאת, אבל אולי זה לטובה. נדע רק בסוף. 625,000 ליום כולל ביטוח. כן ממליץ על ג׳יפ יחסית, שיאפשר יותר גמישות. הם לא הכי יודעים אנגלית, אבל סך הכול הם אחלה."><div class="ph"><span class="pn" style="background:#7b5ea7">14</span><div><h3><bdi dir="auto">ERA Trans Rent Car</bdi></h3><div class="meta"><span class="cat" style="color:#7b5ea7">פרקטי</span> · סוראביה · <bdi dir="ltr">12.9</bdi></div></div></div>
+<div class="chips"><span><bdi dir="ltr">625,000</bdi> רופי ליום כולל ביטוח</span></div>
+<p>השכרנו רכב מפה. תכלס סוכנות קצת גרועה כזאת, אבל אולי זה לטובה. נדע רק בסוף. <bdi dir="ltr">625,000</bdi> ליום כולל ביטוח. כן ממליץ על ג׳יפ יחסית, שיאפשר יותר גמישות.</p><p>הם לא הכי יודעים אנגלית, אבל סך הכול הם אחלה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/URSWoeoft7rk247W8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="14">על המפה</button></div></article>
+<article class="place" id="p-decathlon" data-cat="practical" data-s="decathlon pakuwon surabaya סוראביה פרקטי כ-40 דק׳ מהמלון גראב: 65,000 רופי יש בערך 40 דקות מהמלון קניון מעולה עם דקאתלון במחירים טובים, ועוד מלא דברים שווים. אחלה אוכל גם. גראב מאוד זול פה - עולה 65,000 מהמלון לקניון."><div class="ph"><span class="pn" style="background:#7b5ea7">15</span><div><h3><bdi dir="auto">Decathlon Pakuwon Surabaya</bdi></h3><div class="meta"><span class="cat" style="color:#7b5ea7">פרקטי</span> · סוראביה · <bdi dir="ltr">18.9</bdi></div></div></div>
+<div class="chips"><span>כ-40 דק׳ מהמלון</span><span>גראב: <bdi dir="ltr">65,000</bdi> רופי</span></div>
+<p>יש בערך 40 דקות מהמלון קניון מעולה עם דקאתלון במחירים טובים, ועוד מלא דברים שווים.</p><p>אחלה אוכל גם. גראב מאוד זול פה - עולה <bdi dir="ltr">65,000</bdi> מהמלון לקניון.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/cqzVMxQtkxxhDT6Z8?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="15">על המפה</button></div></article>
+<article class="place" id="p-mitch" data-cat="food" data-s="mitch and elle סוראביה אוכל בערך 60,000 למנה מנות טבעוניות קרוב ממש לקניון המדובר בסוראביה - מסעדה ממש טובה, עם קערות עם דגים, מנות טבעוניות ושתייה טובה. הכול במחירים טובים, בערך 60,000 למנה."><div class="ph"><span class="pn" style="background:#d9622b">16</span><div><h3><bdi dir="auto">Mitch And Elle</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · סוראביה · <bdi dir="ltr">18.9</bdi></div></div></div>
+<div class="chips"><span>בערך <bdi dir="ltr">60,000</bdi> למנה</span><span>מנות טבעוניות</span></div>
+<p>קרוב ממש לקניון המדובר בסוראביה - מסעדה ממש טובה, עם קערות עם דגים, מנות טבעוניות ושתייה טובה. הכול במחירים טובים, בערך <bdi dir="ltr">60,000</bdi> למנה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/8Ui4pa2gnbr5Usqz7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="16">על המפה</button></div></article>
+<article class="place" id="p-lynford" data-cat="practical" data-s="lynford barbershop סוראביה פרקטי  מספרה מעולה לגברים באזור הקניון."><div class="ph"><span class="pn" style="background:#7b5ea7">17</span><div><h3><bdi dir="auto">Lynford Barbershop</bdi></h3><div class="meta"><span class="cat" style="color:#7b5ea7">פרקטי</span> · סוראביה · <bdi dir="ltr">18.9</bdi></div></div></div>
+<p>מספרה מעולה לגברים באזור הקניון.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/sm9e8zAo1dmsWwk39?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="17">על המפה</button></div></article>
+</div></div></section>
+<section class="chapter" id="eastjava" data-ch><div class="wrap"><div class="cbanner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Tumpak_sewu.jpg/1280px-Tumpak_sewu.jpg" alt="Tumpak Sewu" class="" loading=lazy decoding="async"><div><span class="d">5 · <bdi dir="ltr">12–17</bdi> בספטמבר</span><h2>רוד טריפ במזרח ג׳אווה</h2></div></div>
+<p class="quote">“ההמלצה הכללית שלנו היא לחקור הרבה דרך הגוגל מפס ולהגיע לאזורים יותר כפריים ומיוחדים.”</p>
+<div class="cards">
+<article class="place" id="p-grandmiami" data-cat="stay" data-s="grand miami hotel, kepanjen בדרך, כשעתיים מסוראביה לינה מלונות כאן: עד 100₪ טוב, אז יצאנו מסוראביה. יש פה מלון ממש מומלץ, בערך שעתיים נסיעה מהיציאה. בתכלס המלונות פה לא אמורים לעלות יותר מ-100₪. יש כמה אפליקציות שמומלץ להוריד דרך גוגל מפס, שמציעות מחירים טובים ומראות ביקורות."><div class="ph"><span class="pn" style="background:#2f6fb0">18</span><div><h3><bdi dir="auto">Grand Miami Hotel, Kepanjen</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · בדרך, כשעתיים מסוראביה · <bdi dir="ltr">12.9</bdi></div></div></div>
+<div class="chips"><span>מלונות כאן: עד <bdi dir="ltr">100₪</bdi></span></div>
+<p>טוב, אז יצאנו מסוראביה. יש פה מלון ממש מומלץ, בערך שעתיים נסיעה מהיציאה.</p><p>בתכלס המלונות פה לא אמורים לעלות יותר מ-<bdi dir="ltr">100₪</bdi>. יש כמה אפליקציות שמומלץ להוריד דרך גוגל מפס, שמציעות מחירים טובים ומראות ביקורות.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/HJMzysuMqsDrRnEv9?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="18">על המפה</button></div></article>
+<article class="place" id="p-tumpaksewu" data-cat="nature" data-s="tumpak sewu waterfall לומג׳אנג טבע ואטרקציות להגיע לפני 08:00 בלי מדריך יש עלות כניסה תחנה ראשונה של טיול באמת זה המפלים האדירים האלו. בתכלס ממש ממש שווה להגיע מוקדם, לפני 08:00. אנחנו הגענו בערך ב-08:40 וזה כבר די מפוצץ. עשינו בלי מדריך. צריך פשוט להסתובב שם, ויש איזה מערות שמאפשרות לעלות חזרה במסלול מעגלי. שווה לשאול שם אנשים כדי שזה יהיה ברור. יש עלות כניסה, וזה מקום מאוד מרשים."><div class="ph"><span class="pn" style="background:#2f8a5b">19</span><div><h3><bdi dir="auto">Tumpak Sewu Waterfall</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · לומג׳אנג · <bdi dir="ltr">12.9</bdi></div></div></div>
+<div class="chips"><span>להגיע לפני <bdi dir="ltr">08:00</bdi></span><span>בלי מדריך</span><span>יש עלות כניסה</span></div>
+<p>תחנה ראשונה של טיול באמת זה המפלים האדירים האלו. בתכלס ממש ממש שווה להגיע מוקדם, לפני <bdi dir="ltr">08:00.</bdi> אנחנו הגענו בערך ב-<bdi dir="ltr">08:40</bdi> וזה כבר די מפוצץ.</p><p>עשינו בלי מדריך. צריך פשוט להסתובב שם, ויש איזה מערות שמאפשרות לעלות חזרה במסלול מעגלי. שווה לשאול שם אנשים כדי שזה יהיה ברור. יש עלות כניסה, וזה מקום מאוד מרשים.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/snAQfmEHnf2Lfz1q7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="19">על המפה</button></div></article>
+<article class="place" id="p-aston" data-cat="stay" data-s="aston jember hotel ג׳מבר לינה  ישנו בדרך בעיר נוספת, במלון הזה שהיה מעולה! תכלס שם כבר הבנו שכל ההסתובבות הזאת בין ערים פחות טובה, וההמלצה הכללית שלנו היא לחקור הרבה דרך הגוגל מפס ולהגיע לאזורים יותר כפריים ומיוחדים. כי הציר המרכזי שעובר בערים הוא קצת מגעיל ואין המון מה לראות."><div class="ph"><span class="pn" style="background:#2f6fb0">20</span><div><h3><bdi dir="auto">Aston Jember Hotel</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · ג׳מבר · <bdi dir="ltr">12.9</bdi></div></div></div>
+<p>ישנו בדרך בעיר נוספת, במלון הזה שהיה מעולה!</p><p>תכלס שם כבר הבנו שכל ההסתובבות הזאת בין ערים פחות טובה, וההמלצה הכללית שלנו היא לחקור הרבה דרך הגוגל מפס ולהגיע לאזורים יותר כפריים ומיוחדים. כי הציר המרכזי שעובר בערים הוא קצת מגעיל ואין המון מה לראות.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/Q57nyC5B2zcPiZsw7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="20">על המפה</button></div></article>
+<article class="place" id="p-turtlelodge" data-cat="stay" data-s="java turtle lodge meru betiri מרו בטירי, סרונגן לינה זול ושווה סיור פרטי: יומיים + לילה צבי ים המלצה חמה ממש ממש ממש, זול ושווה ברמה די חריגה. יוצאים משם ליומיים של טיול בפארק לאומי ושחרור צבי ים קטנים, אבל המלון עצמו והאזור ממש ואו. זה ממש אינדונזיה אמיתית כזאת, וטבע חריג. הלודג׳ מוציא סיור של יומיים עם לילה אחד, ברמה גבוהה מאוד!! סיור פרטי, נהיגה בג׳ונגל הכי יפה שהיינו בו בחיים בערך. רואים צבת ים עולה לחוף לנסות למצוא מקום להטיל את הביצים, הכול עם ארוחות ודברים מדהימים. עד כה האזור הזה הוא בערך החוויה הכי טובה שלנו באינדונזיה, אז לא לפספס לא משנה מה! מומלץ בחום."><div class="ph"><span class="pn" style="background:#2f6fb0">21</span><div><h3><bdi dir="auto">Java Turtle Lodge Meru Betiri</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · מרו בטירי, סרונגן · <bdi dir="ltr">12–14.9</bdi></div></div></div>
+<div class="chips"><span>זול ושווה</span><span>סיור פרטי: יומיים + לילה</span><span>צבי ים</span></div>
+<p>המלצה חמה ממש ממש ממש, זול ושווה ברמה די חריגה. יוצאים משם ליומיים של טיול בפארק לאומי ושחרור צבי ים קטנים, אבל המלון עצמו והאזור ממש ואו. זה ממש אינדונזיה אמיתית כזאת, וטבע חריג.</p><p>הלודג׳ מוציא סיור של יומיים עם לילה אחד, ברמה גבוהה מאוד!! סיור פרטי, נהיגה בג׳ונגל הכי יפה שהיינו בו בחיים בערך. רואים צבת ים עולה לחוף לנסות למצוא מקום להטיל את הביצים, הכול עם ארוחות ודברים מדהימים.</p><p>עד כה האזור הזה הוא בערך החוויה הכי טובה שלנו באינדונזיה, אז לא לפספס לא משנה מה! מומלץ בחום.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/XZzgidwTQ3yhHfkG9?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="21">על המפה</button></div></article>
+<article class="place" id="p-rajegwesi" data-cat="nature" data-s="pantai rajegwesi ליד הלודג׳ טבע ואטרקציות כולל שקיעה כשמגיעים, אם יש זמן, ללכת לחוף הזה לכמה שעות, כולל שקיעה, ולהתהלך עליו."><div class="ph"><span class="pn" style="background:#2f8a5b">22</span><div><h3><bdi dir="auto">Pantai Rajegwesi</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · ליד הלודג׳ · <bdi dir="ltr">12.9</bdi></div></div></div>
+<div class="chips"><span>כולל שקיעה</span></div>
+<p>כשמגיעים, אם יש זמן, ללכת לחוף הזה לכמה שעות, כולל שקיעה, ולהתהלך עליו.</p>
+<div class="acts"><a class="btn gm" href="https://maps.google.com?ftid=0x2dd41a96c9bb19b3:0x10b3ec62ee5a2753&amp;entry=gps&amp;shh=CAE&amp;lucs=,94297699,94231188,94280568,47071704,94218641,94282134,94286869,100820247,100822504&amp;g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="22">על המפה</button></div></article>
+<article class="place" id="p-lintang" data-cat="stay" data-s="lintang luku tent resort ליצין, אזור איג׳ן לינה כשעתיים וחצי מהלודג׳ מחיר מעולה תחנה הבאה, המלצה ממש ממש חד משמעית. בערך שעתיים וחצי מהלודג׳ המטורף של צבי הים ומהסיור של היומיים שם, שבאמת היה עד עכשיו החוויה הכי אותנטית ומדהימה ומיוחדת שהייתה לנו. התקדמנו לכיוון איג׳ן המפורסם. חשוב להגיד שגם איג׳ן וגם ברומו נוטים להיסגר בגלל שריפות (ממש כרגע, למשל, שניהם סגורים), ולכן חייבים להתעדכן המון. בכל מקרה, לקחנו ריזורט מדהים במחיר מעולה ליומיים. מקום ממש מיוחד ומומלץ, ואזור מאוד יפה של טבע. באזור של הריזורט באמת הסתובבנו הרבה ברגל ונהנינו מאוד."><div class="ph"><span class="pn" style="background:#2f6fb0">23</span><div><h3><bdi dir="auto">Lintang Luku Tent Resort</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · ליצין, אזור איג׳ן · <bdi dir="ltr">14.9</bdi></div></div></div>
+<div class="chips"><span>כשעתיים וחצי מהלודג׳</span><span>מחיר מעולה</span></div>
+<p>תחנה הבאה, המלצה ממש ממש חד משמעית. בערך שעתיים וחצי מהלודג׳ המטורף של צבי הים ומהסיור של היומיים שם, שבאמת היה עד עכשיו החוויה הכי אותנטית ומדהימה ומיוחדת שהייתה לנו.</p><p>התקדמנו לכיוון איג׳ן המפורסם. חשוב להגיד שגם איג׳ן וגם ברומו נוטים להיסגר בגלל שריפות (ממש כרגע, למשל, שניהם סגורים), ולכן חייבים להתעדכן המון.</p><p>בכל מקרה, לקחנו ריזורט מדהים במחיר מעולה ליומיים. מקום ממש מיוחד ומומלץ, ואזור מאוד יפה של טבע.</p><p>באזור של הריזורט באמת הסתובבנו הרבה ברגל ונהנינו מאוד.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/CV6d8rPr1w4hmoZM7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="23">על המפה</button></div></article>
+<article class="place" id="p-jagir" data-cat="nature" data-s="jagir waterfall אזור איג׳ן טבע ואטרקציות ברגל מהריזורט מפל מפתיע מאוד לטובה!! עשינו הליכה ברגל מהריזורט. הדרך הייתה ממש יפה ועצרנו לדבר עם הרבה מקומיים. בכללי זה אזור מאוד יפה."><div class="ph"><span class="pn" style="background:#2f8a5b">24</span><div><h3><bdi dir="auto">Jagir Waterfall</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · אזור איג׳ן · <bdi dir="ltr">15.9</bdi></div></div></div>
+<div class="chips"><span>ברגל מהריזורט</span></div>
+<p>מפל מפתיע מאוד לטובה!! עשינו הליכה ברגל מהריזורט. הדרך הייתה ממש יפה ועצרנו לדבר עם הרבה מקומיים. בכללי זה אזור מאוד יפה.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/JK5pCYCHuiWM46TG9?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="24">על המפה</button></div></article>
+<article class="place" id="p-kuncikuppi" data-cat="food" data-s="kunci kuppi - cafe &amp; bakehouse אזור איג׳ן אוכל המון אופציות האוכל בריזורט סך הכול בסדר, אבל קפצנו למקום הזה והוא נראה מדהים, עם המון אופציות. מומלץ לנסות."><div class="ph"><span class="pn" style="background:#d9622b">25</span><div><h3><bdi dir="auto">Kunci Kuppi - Cafe &amp; Bakehouse</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · אזור איג׳ן · <bdi dir="ltr">15.9</bdi></div></div></div>
+<div class="chips"><span>המון אופציות</span></div>
+<p>האוכל בריזורט סך הכול בסדר, אבל קפצנו למקום הזה והוא נראה מדהים, עם המון אופציות. מומלץ לנסות.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/rWAMWwYL9cbAH2mz6?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="25">על המפה</button></div></article>
+</div></div></section>
+<section class="chapter" id="westbali" data-ch><div class="wrap"><div class="cbanner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Foto_landscape_pemandangan_di_pulau_menjangan.jpg/1280px-Foto_landscape_pemandangan_di_pulau_menjangan.jpg" alt="האי מנג׳נגן, מערב באלי" class="" loading=lazy decoding="async"><div><span class="d">6 · 17 בספטמבר</span><h2>מערב באלי</h2></div></div>
+<p class="quote">“בכל מקרה זה אזור מעולה עם מועדוני צלילה ואחלה מסעדות.”</p>
+<div class="intro"><p>החלטנו לעבור למערב באלי במעבורת, בעיקר כי הרגיש לנו שאין מספיק דברים מעניינים בחלק הצפוני של ג׳אווה בחזרה לסוראביה. היה נראה לנו שיש פארק לאומי וריזורטים שווים וזולים במערב באלי, והחלטנו לעבור לשם אחרי הימים בריזורט המדהים.</p><p>לגבי המעבורת - על פניו הכי סביר להשאיר את הרכב (אנחנו השארנו בריזורט) ולקחת מעבורת בתור הולכי רגל. מצד שני, עולה רק <bdi dir="ltr">450,000</bdi> רופי לעבור עם רכב. לא העמקנו באופציה הזאת אז לא אפרט עליה, אבל אני חושב שהיא לגמרי שווה בדיקה, כי זאת גמישות שיכולה לחסוך גם כסף וגם זמן, וגם להיות כיפית.</p><p>עברנו רגלית והסתכלנו על הרבה ריזורטים.</p></div>
+<div class="cards">
+<article class="place" id="p-sumberkima" data-cat="stay" data-s="sumberkima hill retreat סומברקימה לינה בערך 150₪ ממליצים על אחר בסוף הלכנו על משהו שהיה נראה לנו מאוד שווה, בערך ב-150₪. באמת יש שם בריכות מדהימות וחדרים ברמה, אבל הריזורט עצמו קצת מלוכלך ולא בסביבה הכי יפה, ובתכלס אנחנו ממליצים ללכת על אחר (הבא ברשימה)."><div class="ph"><span class="pn" style="background:#2f6fb0">26</span><div><h3><bdi dir="auto">Sumberkima Hill Retreat</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · סומברקימה · <bdi dir="ltr">17.9</bdi></div></div></div>
+<div class="chips"><span>בערך <bdi dir="ltr">150₪</bdi></span><span>ממליצים על אחר</span></div>
+<p>בסוף הלכנו על משהו שהיה נראה לנו מאוד שווה, בערך ב-<bdi dir="ltr">150₪</bdi>. באמת יש שם בריכות מדהימות וחדרים ברמה, אבל הריזורט עצמו קצת מלוכלך ולא בסביבה הכי יפה, ובתכלס אנחנו ממליצים ללכת על אחר (הבא ברשימה).</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/wBTgZAz6MjWztEFFA?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="26">על המפה</button></div></article>
+<article class="place" id="p-tamansari" data-cat="stay" data-s="taman sari bali resort &amp; spa פמוטרן לינה על הים ביקורות טובות יותר עברנו לידו והוא היה נראה באזור יותר מגניב, על הים, יותר מסודר ומפנק, וגם ביקורות יותר טובות בבוקינג."><div class="ph"><span class="pn" style="background:#2f6fb0">27</span><div><h3><bdi dir="auto">Taman Sari Bali Resort &amp; Spa</bdi></h3><div class="meta"><span class="cat" style="color:#2f6fb0">לינה</span> · פמוטרן · <bdi dir="ltr">17.9</bdi></div></div></div>
+<div class="chips"><span>על הים</span><span>ביקורות טובות יותר</span></div>
+<p>עברנו לידו והוא היה נראה באזור יותר מגניב, על הים, יותר מסודר ומפנק, וגם ביקורות יותר טובות בבוקינג.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/GkEsFaTEUGL8HtZA7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="27">על המפה</button></div></article>
+<article class="place" id="p-lakawi" data-cat="food" data-s="lakawi פמוטרן אוכל מנות צמחוניות וטבעוניות יש מסעדות מעולות באזור. אנחנו השכרנו אופנוע על בסיס הריזורט (הפחות טוב) במחיר ממש נמוך. אכלנו במסעדת המבורגרים שהיו בה גם מנות צמחוניות וטבעוניות."><div class="ph"><span class="pn" style="background:#d9622b">28</span><div><h3><bdi dir="auto">Lakawi</bdi></h3><div class="meta"><span class="cat" style="color:#d9622b">אוכל</span> · פמוטרן · <bdi dir="ltr">17.9</bdi></div></div></div>
+<div class="chips"><span>מנות צמחוניות וטבעוניות</span></div>
+<p>יש מסעדות מעולות באזור. אנחנו השכרנו אופנוע על בסיס הריזורט (הפחות טוב) במחיר ממש נמוך.</p><p>אכלנו במסעדת המבורגרים שהיו בה גם מנות צמחוניות וטבעוניות.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/sVYF9zc9A39uBZ3m7?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="28">על המפה</button></div></article>
+<article class="place" id="p-westbalidiving" data-cat="nature" data-s="west bali diving &amp; snorkeling סומברקימה טבע ואטרקציות 1,500,000 רופי לאדם 08:30-13:00 כולל צהריים התלבטנו ממש לגבי צלילה או שנורקלים. יש אי קרוב עם אופציות ממש טובות של צלילה ושנורקלים. בסוף הלכנו לעשות צלילה דרכם. הם היו מאוד נחמדים, רציניים ומקצוענים. הכול הרגיש מאוד בטיחותי ומסודר, ואנחנו ממליצים בחום. לא ראינו צבים וכרישים, אבל אחרים ראו, וכן ראינו המון דגים יפים ושוניות מרשימות. סך הכול 1,500,000 לבן אדם, שזה אחלה מחיר, מ-08:30 עד 13:00, כולל ארוחת צהריים."><div class="ph"><span class="pn" style="background:#2f8a5b">29</span><div><h3><bdi dir="auto">West Bali Diving &amp; Snorkeling</bdi></h3><div class="meta"><span class="cat" style="color:#2f8a5b">טבע ואטרקציות</span> · סומברקימה · <bdi dir="ltr">17.9</bdi></div></div></div>
+<div class="chips"><span><bdi dir="ltr">1,500,000</bdi> רופי לאדם</span><span><bdi dir="ltr">08:30-13:00</bdi> כולל צהריים</span></div>
+<p>התלבטנו ממש לגבי צלילה או שנורקלים. יש אי קרוב עם אופציות ממש טובות של צלילה ושנורקלים.</p><p>בסוף הלכנו לעשות צלילה דרכם. הם היו מאוד נחמדים, רציניים ומקצוענים. הכול הרגיש מאוד בטיחותי ומסודר, ואנחנו ממליצים בחום.</p><p>לא ראינו צבים וכרישים, אבל אחרים ראו, וכן ראינו המון דגים יפים ושוניות מרשימות. סך הכול <bdi dir="ltr">1,500,000</bdi> לבן אדם, שזה אחלה מחיר, מ-<bdi dir="ltr">08:30</bdi> עד <bdi dir="ltr">13:00,</bdi> כולל ארוחת צהריים.</p>
+<div class="acts"><a class="btn gm" href="https://maps.app.goo.gl/tQijddrxFTzPXZ3UA?g_st=ic" target="_blank" rel="noopener">גוגל מפס ↗</a><button class="btn onmap" data-go="29">על המפה</button></div></article>
+</div></div></section>
+<div class="wrap"><p class="empty" id="empty" hidden>לא מצאנו מקום כזה. נסו מילה אחרת או "הכל".</p></div>
+<footer><div class="wrap"><h3>על האתר</h3><p>ההמלצות נכתבו מהדרך, בספטמבר 2026, על מקומות שהיינו בהם בעצמנו. מחירים, שעות וסטטוס של אתרים (בעיקר איג׳ן וברומו) משתנים - שווה לבדוק לפני שיוצאים.</p><p>התמונות לא שלנו: הן מוויקישיתוף, לפי הרישיונות שלהן:</p><ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Padar_Island,_Komodo_National_Park,_Indonesia,_20250822_0929_2659.jpg" target="_blank" rel="noopener">פדר, פארק קומודו</a> - Jakub Hałun, CC BY 4.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Rice_terraces,_Bali.jpg" target="_blank" rel="noopener">שדות אורז, באלי</a> - Vyacheslav Argenberg, CC BY 4.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Padar_Island,_Komodo_National_Park,_Indonesia,_20250822_0911_2638.jpg" target="_blank" rel="noopener">פארק קומודו</a> - Jakub Hałun, CC BY 4.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Suramadu_Bridge_5.JPG" target="_blank" rel="noopener">גשר סוראמאדו, סוראביה</a> - Sakurai Midori, CC BY 3.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Tumpak_sewu.jpg" target="_blank" rel="noopener">Tumpak Sewu</a> - HarfiBimantara, CC BY-SA 4.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Green_Sea_Turtle_laying_her_eggs_on_Sukamade_beach.jpg" target="_blank" rel="noopener">צבת ים מטילה ביצים בחוף סוקאמדה, מרו בטירי</a> - Jean-Marie Hullot, CC BY-SA 3.0</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Foto_landscape_pemandangan_di_pulau_menjangan.jpg" target="_blank" rel="noopener">האי מנג׳נגן, מערב באלי</a> - Noirperspective, CC BY-SA 4.0</li>
+</ul><p>מפה: © OpenStreetMap contributors.</p></div></footer><button class="totop" id="totop" aria-label="חזרה למעלה">↑</button>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script>
+const P=[[1, "Sumampan Waterfall", "nature", -8.551689, 115.292068, "sumampan"], [2, "חוף באולווטו", "nature", -8.838239, 115.091553, "ulubeach"], [3, "Alchemy Uluwatu", "food", -8.8144714, 115.1131568, "alchemy"], [4, "Maison Barbershop", "practical", -8.8102519, 115.1124025, "maison"], [5, "הדירה באובוד (Airbnb)", "stay", -8.471765, 115.264877, "ubudbnb"], [6, "שדות האורז", "nature", -8.496677, 115.26123, "rice"], [7, "The Hideaway Ubud", "stay", -8.4716991, 115.2644719, "hideaway"], [8, "Happy Banana Komodo", "food", -8.4978312, 119.8805146, "happybanana"], [9, "Seaesta Komodo Hostel & Hotel", "stay", -8.4893712, 119.8777583, "seaesta"], [10, "Family Labuan Bajo Tour & Travel", "nature", -8.4949488, 119.8786132, "family"], [11, "Darbar Indian Cuisine", "food", -8.7319873, 115.1675856, "darbar"], [12, "BeSS Mansion Hotel Surabaya", "stay", -7.327237, 112.7329257, "bess"], [13, "Common Grounds", "food", -7.2692939, 112.7406055, "commongrounds"], [14, "ERA Trans Rent Car", "practical", -7.3328032, 112.7788493, "era"], [15, "Decathlon Pakuwon Surabaya", "practical", -7.2888932, 112.6763033, "decathlon"], [16, "Mitch And Elle", "food", -7.2901394, 112.6769164, "mitch"], [17, "Lynford Barbershop", "practical", -7.2927572, 112.6766329, "lynford"], [18, "Grand Miami Hotel, Kepanjen", "stay", -8.0981506, 112.5836578, "grandmiami"], [19, "Tumpak Sewu Waterfall", "nature", -8.2314861, 112.9176193, "tumpaksewu"], [20, "Aston Jember Hotel", "stay", -8.1812696, 113.6871141, "aston"], [21, "Java Turtle Lodge Meru Betiri", "stay", -8.5566099, 113.9454806, "turtlelodge"], [22, "Pantai Rajegwesi", "nature", -8.5587133, 113.9374598, "rajegwesi"], [23, "Lintang Luku Tent Resort", "stay", -8.1898083, 114.2714257, "lintang"], [24, "Jagir Waterfall", "nature", -8.1762131, 114.2846412, "jagir"], [25, "Kunci Kuppi - Cafe & Bakehouse", "food", -8.2038161, 114.2696927, "kuncikuppi"], [26, "Sumberkima Hill Retreat", "stay", -8.1513898, 114.6088368, "sumberkima"], [27, "Taman Sari Bali Resort & Spa", "stay", -8.1419129, 114.6526085, "tamansari"], [28, "Lakawi", "food", -8.145542, 114.6541913, "lakawi"], [29, "West Bali Diving & Snorkeling", "nature", -8.1375039, 114.5992972, "westbalidiving"]];const C={"stay": ["לינה", "#2f6fb0"], "food": ["אוכל", "#d9622b"], "nature": ["טבע ואטרקציות", "#2f8a5b"], "practical": ["פרקטי", "#7b5ea7"]};
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// menu
+const sheet=$('#sheet'),mb=$('#menuBtn');
+const setMenu=o=>{sheet.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+mb.onclick=()=>setMenu(true);$('#closeBtn').onclick=()=>setMenu(false);
+sheet.onclick=e=>{if(e.target===sheet||e.target.closest('nav a'))setMenu(false)};
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+// converter
+const idr=$('#idr'),ils=$('#ils');
+const fmt=n=>n.toLocaleString('en-US');
+function conv(){const v=+idr.value.replace(/[^0-9]/g,'')||0;ils.textContent=fmt(Math.round(v*17/100000))+' ₪'}
+idr.addEventListener('input',()=>{const v=idr.value.replace(/[^0-9]/g,'');idr.value=v?fmt(+v):'';conv()});
+$$('.q button').forEach(b=>b.onclick=()=>{idr.value=fmt(+b.dataset.v);conv()});conv();
+// filter
+let f='all';const q=$('#q'),count=$('#count'),empty=$('#empty');
+function apply(){const s=q.value.trim().toLowerCase();let n=0;
+$$('.place').forEach(c=>{const ok=(f==='all'||c.dataset.cat===f)&&(!s||c.dataset.s.includes(s));c.hidden=!ok;if(ok)n++});
+$$('[data-ch]').forEach(ch=>{ch.hidden=!ch.querySelector('.place:not([hidden])')});
+count.textContent=(f==='all'&&!s)?`${n} מקומות, לפי סדר הטיול`:`${n} מקומות מתאימים`;empty.hidden=n>0;
+if(window.markers)markers.forEach(m=>{const el=document.getElementById('p-'+m.pid);m.setOpacity(el&&!el.hidden?1:.25)})}
+$$('.chip').forEach(b=>b.onclick=()=>{f=b.dataset.f;$$('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));apply()});
+q.addEventListener('input',apply);
+// map
+window.markers=[];
+if(window.L){const map=L.map('map',{scrollWheelZoom:false,tap:true});
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:19}).addTo(map);
+const b=[];P.forEach(([no,name,cat,lat,lng,pid])=>{const ic=L.divIcon({className:'',html:`<div class="num-pin" style="background:${C[cat][1]}">${no}</div>`,iconSize:[26,26],iconAnchor:[13,13]});
+const m=L.marker([lat,lng],{icon:ic,title:name}).addTo(map).bindPopup(`<b dir="ltr">${no}. ${name}</b><br><a href="#p-${pid}">לכרטיס ←</a>`);m.pid=pid;markers.push(m);b.push([lat,lng])});
+map.fitBounds(b,{padding:[20,20]});window._map=map;
+$$('.onmap').forEach(btn=>btn.onclick=()=>{const m=markers[+btn.dataset.go-1];document.getElementById('mapsec').scrollIntoView();setTimeout(()=>{map.setView(m.getLatLng(),14);m.openPopup()},350)});
+}else{$('#map').innerHTML='<p style="padding:20px">המפה לא נטענה. כל כרטיס כולל קישור לגוגל מפס.</p>';$$('.onmap').forEach(b=>b.hidden=true)}
+apply();
+// to top
+const tt=$('#totop');addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>900),{passive:true});tt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script></body></html>
